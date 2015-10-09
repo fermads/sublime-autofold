@@ -1,0 +1,12 @@
+{
+  "foldAttributes" : [
+    "href",
+    "src"
+  ],
+
+  "unfoldCurrentLine": true,
+
+  "foldTags": [
+    "h1"
+  ]
+}
