@@ -5,8 +5,14 @@
   ],
 
   "tags": [
-    "h1"
   ],
 
+  "files": [
+    "html",
+    "xml"
+  ],
+
+  "runOnLoad": true,
+  "runOnSave": true,
   "unfoldCurrentLine": true
 }
