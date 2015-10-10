@@ -10,7 +10,7 @@ You'll have them automatically folded when you save your files:
 
 ## Install
 
-If using [Package Control](https://packagecontrol.io/) for [Sublime Text](sublimetext.com/3), simply install the AutoFold package.
+If using [Package Control](https://packagecontrol.io/) for [Sublime Text](http://sublimetext.com/3), simply install the AutoFold package.
 
 Alternatively, you can clone the repo directly into your Sublime plugin folder.
 
@@ -54,7 +54,7 @@ Save the file. All urls will be folded.
 Default configuration:
 ```js
 {
-  "attributes" : [ // attributes to auto-fold
+  "attributes" : [  // attributes to auto-fold
     "href",
     "src"
   ],
@@ -62,7 +62,14 @@ Default configuration:
   "tags": [ // tags to auto-fold
   ],
 
-  "unfoldCurrentLine": true // auto-unfold tags and attributes on current line
+  "files": [ // activate this plugin for file types:
+    "html",
+    "xml"
+  ],
+
+  "runOnLoad": true, // fold on load
+  "runOnSave": true, // fold on save
+  "unfoldCurrentLine": true
 }
 ```
 
