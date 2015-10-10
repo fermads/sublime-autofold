@@ -10,21 +10,24 @@ You'll have them automatically folded when you save your files:
 
 ## Install
 
-If using Package Control for Sublime Text, simply install the AutoFold package.
+If using [Package Control](https://packagecontrol.io/) for [Sublime Text](sublimetext.com/3), simply install the AutoFold package.
 
 Alternatively, you can clone the repo directly into your Sublime plugin folder.
 
-Mac:
+**Mac:**
 
+```bash
   cd ~/"Library/Application Support/Sublime Text 3/Packages"
   git clone --depth 1 https://github.com/fermads/sublime-autofold.git AutoFold
+```
 
-Windows:
+**Windows:**
 
+```bash
   cd "%APPDATA%\Sublime Text 3\Packages"
   git clone --depth 1 https://github.com/fermads/sublime-autofold.git AutoFold
-
---depth 1 downloads only the current version to reduce the clone size.
+```
+`--depth` 1 downloads only the current version to reduce the clone size.
 
 ## Usage
 
@@ -49,7 +52,7 @@ Save the file. All urls will be folded.
 ## Config
 
 Default configuration:
-```json
+```js
 {
   "attributes" : [ // attributes to auto-fold
     "href",
