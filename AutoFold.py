@@ -16,16 +16,16 @@ class AutoFoldListener(sublime_plugin.EventListener):
     files = self.settings.get('files')
 
     if not files:
-      print("AutoFold.sublime-settings file missing")
+      self.log("AutoFold.sublime-settings file missing")
       return False
 
     # run only on specific files
     for type in files:
       if type in syntax:
-        self.log("Activated for file type "+ type)
+        self.log("Activated for file type "+ type + " syntax "+ syntax)
         return True
 
-    self.log("Not activated")
+    self.log("Not activated for syntax "+ syntax)
 
 
   def execute(self, view):
@@ -41,15 +41,13 @@ class AutoFoldListener(sublime_plugin.EventListener):
 
   def on_load(self, view):
     self.active = self.activate(view)
-    if self.settings.get('runOnLoad'):
+
+    if self.active and self.settings.get('runOnLoad'):
       self.execute(view)
 
 
   def on_pre_save_async(self, view):
-    if not self.active:
-      return
-
-    if self.settings.get('runOnSave'):
+    if self.active and self.settings.get('runOnSave'):
       self.execute(view)
 
 
