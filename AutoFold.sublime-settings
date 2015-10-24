@@ -1,18 +1,24 @@
 {
-  "attributes" : [
+  "attributes" : [ // attributes to auto-fold
     "href",
     "src"
   ],
 
-  "tags": [
+  "tags": [ // tags auto-fold
+    "h1"
   ],
 
-  "files": [
+  "regexps": [ // regexps to auto-fold
+    "(?<=\\()http.*?(?=\\))" // fold markdown urls "(http://..)"
+    //"\\{(.|\n)*?\\}" // note: multiline regexps should include \n "." does not mach new lines
+  ],
+
+  "extensions": [  // activate this plugin for file extensions:
     "html",
-    "xml"
+    "xml",
+    "md"
   ],
 
-  "runOnLoad": true,
-  "runOnSave": true,
-  "unfoldCurrentLine": true
+  "runOnLoad": true, // auto-fold on load
+  "runOnSave": true // auto-fold on save
 }

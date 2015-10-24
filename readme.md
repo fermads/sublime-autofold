@@ -10,24 +10,29 @@ You'll have them automatically folded when you save your files:
 
 ## Install
 
-If using [Package Control](https://packagecontrol.io/) for [Sublime Text](http://sublimetext.com/3), simply install the AutoFold package.
+If using [Package Control](https://packagecontrol.io/)
+for [Sublime Text](http://sublimetext.com/3), simply install the
+AutoFold package.
 
-Alternatively, you can clone the repo directly into your Sublime plugin folder.
+Alternatively, you can clone the repo directly into your
+Sublime Packages folder.
 
 **Mac:**
 
 ```bash
-  cd ~/"Library/Application Support/Sublime Text 3/Packages"
+  cd ~/"Library/Application Support/Sublime Text 3/Data/Packages"
   git clone --depth 1 https://github.com/fermads/sublime-autofold.git AutoFold
 ```
 
 **Windows:**
 
 ```bash
-  cd "%APPDATA%\Sublime Text 3\Packages"
+  cd "%APPDATA%\Sublime Text 3\Data\Packages"
   git clone --depth 1 https://github.com/fermads/sublime-autofold.git AutoFold
 ```
 `--depth` 1 downloads only the current version to reduce the clone size.
+
+It's the `/Data/Packages` and not `/Packages` folder
 
 ## Usage
 
@@ -54,22 +59,27 @@ Save the file. All urls will be folded.
 Default configuration:
 ```js
 {
-  "attributes" : [  // attributes to auto-fold
+  "attributes" : [ // attributes to auto-fold
     "href",
     "src"
   ],
 
-  "tags": [ // tags to auto-fold
+  "tags": [ // tags auto-fold
+    "h1"
   ],
 
-  "files": [ // activate this plugin for file types:
+  "regexps": [ // regexps to auto-fold
+    "(?<=\\()http.*?(?=\\))" // fold markdown urls "(http://..)"
+  ],
+
+  "extensions": [  // activate this plugin for extensions:
     "html",
-    "xml"
+    "xml",
+    "md"
   ],
 
-  "runOnLoad": true, // fold on load
-  "runOnSave": true, // fold on save
-  "unfoldCurrentLine": true
+  "runOnLoad": true, // auto-fold on load
+  "runOnSave": true // auto-fold on save
 }
 ```
 

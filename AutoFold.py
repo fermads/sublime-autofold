@@ -7,30 +7,30 @@ class AutoFoldListener(sublime_plugin.EventListener):
 
   def log(self, str):
     if self.debug:
-      print("[AutoFold] "+ str)
+      print('[AutoFold] '+ str)
 
 
   def activate(self, view):
-    self.settings = sublime.load_settings("AutoFold.sublime-settings")
-    syntax = view.settings().get("syntax").lower()
-    files = self.settings.get('files')
+    self.settings = sublime.load_settings('AutoFold.sublime-settings')
+    syntax = view.settings().get('syntax').lower()
+    extensions = self.settings.get('extensions')
+    file_name = view.file_name()
 
-    if not files:
-      self.log("AutoFold.sublime-settings file missing")
+    if not extensions:
+      self.log('AutoFold.sublime-settings extensions missing')
       return False
 
-    # run only on specific files
-    for type in files:
-      if type in syntax:
-        self.log("Activated for file type "+ type + " syntax "+ syntax)
+    # run only for selected file extensions
+    for ext in extensions:
+      if file_name.endswith(ext):
+        self.log('Activated for file '+ file_name)
         return True
-
-    self.log("Not activated for syntax "+ syntax)
 
 
   def execute(self, view):
     attrs = self.settings.get('attributes')
     tags = self.settings.get('tags')
+    regexps = self.settings.get('regexps')
 
     if attrs:
       self.fold_attributes(view, attrs)
@@ -38,6 +38,8 @@ class AutoFoldListener(sublime_plugin.EventListener):
     if tags:
       self.fold_tags(view, tags)
 
+    if regexps:
+      self.fold_regexp(view, regexps)
 
   def on_load(self, view):
     self.active = self.activate(view)
@@ -51,15 +53,21 @@ class AutoFoldListener(sublime_plugin.EventListener):
       self.execute(view)
 
 
+  def fold_regexp(self, view, regexps):
+    for regexp in regexps:
+      result = view.find_all(regexp, sublime.IGNORECASE)
+      view.fold(result)
+
+
   def fold_tags(self, view, tags):
     for tag in tags:
-      result = view.find_all(r"(?<=<" + re.escape(tag) + ">).*?(?=</"
-             + re.escape(tag) + ">)", sublime.IGNORECASE)
+      result = view.find_all(r'(?<=<' + re.escape(tag) + '>).*?(?=</'
+             + re.escape(tag) + '>)', sublime.IGNORECASE)
       view.fold(result)
 
 
   def fold_attributes(self, view, attrs):
     for attr in attrs:
-      result = view.find_all(r"(?<=" + re.escape(attr)
-             + "=\").*?(?=\")", sublime.IGNORECASE)
+      result = view.find_all(r'(?<=' + re.escape(attr)
+             + '=").*?(?=")', sublime.IGNORECASE)
       view.fold(result)
