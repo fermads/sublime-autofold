@@ -37,6 +37,9 @@ Alternatively, clone the repo directly into Sublime Packages folder.
 Open any HTML file with tags containing attributes `href` or `src`.
 These attributes values will be folded. Saving the file will also fold them.
 
+You can add your own tags, attributes and regular expressions to auto fold.
+See settings below.
+
 ## Settings
 Default settings will fold `src` and `href` attributes from HTML and
 will fold Markdown urls matching `(http.*?)`.
@@ -50,7 +53,7 @@ Settings file is `AutoFold.sublime-settings`
     "src"
   ],
 
-  "tags": [ // tags auto fold
+  "tags": [ // tags to auto fold
     "h1"
   ],
 
@@ -58,7 +61,7 @@ Settings file is `AutoFold.sublime-settings`
     "(?<=\\()http.*?(?=\\))" // fold markdown urls "(http://..)"
   ],
 
-  "extensions": [  // activate this plugin for extensions:
+  "extensions": [  // activate plugin for files with this extensions
     "html",
     "xml",
     "md"
