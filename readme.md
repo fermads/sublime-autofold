@@ -8,6 +8,8 @@ Instead of having long urls cluttering your view like this:
 Have urls automatically folded when opening or saving files:
 ![folded](https://raw.githubusercontent.com/fermads/sublime-autofold/master/img/folded.png)
 
+Or add your own tags, attributes and regular expressions to auto fold.
+
 ## Install
 
 If using [Package Control](https://packagecontrol.io/)
@@ -36,9 +38,6 @@ Alternatively, clone the repo directly into Sublime Packages folder.
 ## Usage
 Open any HTML file with tags containing attributes `href` or `src`.
 These attributes values will be folded. Saving the file will also fold them.
-
-You can add your own tags, attributes and regular expressions to auto fold.
-See settings below.
 
 ## Settings
 Default settings will fold `src` and `href` attributes from HTML and
