@@ -2,10 +2,10 @@
 
 ### Sublime Text 3 plugin for automatically folding tags, attributes and strings matching regexp patterns
 
-Instead of having long urls cluttering your view like this:
+Instead of having long urls cluttering your view like this:<br/>
 ![unfolded](https://raw.githubusercontent.com/fermads/sublime-autofold/master/img/unfolded.png)
 
-Have urls automatically folded when opening or saving files:
+Have urls automatically folded when opening or saving files:<br/>
 ![folded](https://raw.githubusercontent.com/fermads/sublime-autofold/master/img/folded.png)
 
 Or add your own tags, attributes and regular expressions to auto fold.
