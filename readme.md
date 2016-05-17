@@ -2,6 +2,11 @@
 
 ### Sublime Text 3 plugin for automatically folding tags, attributes or any configurable string matching a regular expression
 
+Plugin default settings will:
+* fold `src` and `href` attributes from HTML and XML files
+* fold all `url(*)` from CSS files, including base64 data
+* fold all `urls (http*)` from Markdown files (.md and .mkd extensions)
+
 Instead of having long urls cluttering your view like this:<br/>
 ![unfolded](https://raw.githubusercontent.com/fermads/sublime-autofold/master/img/unfolded.png)
 
@@ -9,11 +14,6 @@ Have urls automatically folded when opening or saving files:<br/>
 ![folded](https://raw.githubusercontent.com/fermads/sublime-autofold/master/img/folded.png)
 
 Or add your own tags, attributes and regular expressions to auto fold.
-
-Defaults are:
-* fold `src` and `href` attributes from HTML and XML files
-* fold all `url(*)` from CSS files, including base64 data
-* fold all `urls (http*)` from Markdown files (.md and .mkd extensions)
 
 ## Install
 
