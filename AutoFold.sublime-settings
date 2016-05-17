@@ -8,13 +8,17 @@
     "h1"
   ],
 
+  // "\\{(.|\n)*?\\}" // note: multiline regexps should include \n.
+  // "." does not mach new lines
   "regexps": [ // regexps to auto-fold
+    "(?<=(url)\\().*?(?=\\))", // fold urls in css files
     "(?<=\\()http.*?(?=\\))" // fold markdown urls "(http://..)"
-    //"\\{(.|\n)*?\\}" // note: multiline regexps should include \n "." does not mach new lines
   ],
 
   "extensions": [  // activate this plugin for file extensions:
     "html",
+    "htm",
+    "css",
     "xml",
     "md"
   ],
