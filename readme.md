@@ -5,8 +5,8 @@
 Plugin default settings will:
 
 * fold `src` and `href` attributes from HTML and XML files
-* fold all `url(*)` from CSS files, including base64 data
-* fold all `urls (http*)` from Markdown files (.md and .mkd extensions)
+* fold property values with `url(*)` from CSS files, including base64 data
+* fold urls `(http*)` from Markdown files (.md and .mkd extensions)
 
 Instead of having long urls cluttering your view like this:<br/>
 ![unfolded](https://raw.githubusercontent.com/fermads/sublime-autofold/master/img/unfolded.png)
