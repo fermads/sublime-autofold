@@ -12,8 +12,8 @@ Or add your own tags, attributes and regular expressions to auto fold.
 
 Defaults are:
 * fold `src` and `href` attributes from HTML and XML files
-* fold all url(*) from CSS files, including base64 data
-* fold all urls (http*) from Markdown files (.md and .mkd extensions)
+* fold all `url(*)` from CSS files, including base64 data
+* fold all `urls (http*)` from Markdown files (.md and .mkd extensions)
 
 ## Install
 
@@ -43,40 +43,10 @@ Alternatively, clone the repo directly into Sublime Packages folder.
 
 ## Usage
 Example: open any HTML file with tags containing attributes `href` or `src`.
-These attributes values will be folded. Saving the file will also fold them.
+These attribute values will be folded. Saving the file will also fold them.
 
 ## Settings
-To change the default settings copy the settings file content below
-to `[Sublime path]/Data/Packages/User/AutoFold.sublime-settings`
-
-```js
-{
-  "attributes" : [ // attributes to auto-fold
-    "href",
-    "src"
-  ],
-
-  "tags": [ // tags auto-fold
-    "h1"
-  ],
-
-  // "\\{(.|\n)*?\\}" // note: multi-line regexps should include \n.
-  // "." does not mach new lines
-  "regexps": [ // regexps to auto-fold
-    "(?<=(url)\\().*?(?=\\))", // fold urls in css files
-    "(?<=\\()http.*?(?=\\))" // fold markdown urls "(http://..)"
-  ],
-
-  "extensions": [  // activate this plugin for file extensions:
-    "html",
-    "htm",
-    "css",
-    "xml",
-    "md"
-  ],
-
-  "runOnLoad": true, // auto-fold on load
-  "runOnSave": true // auto-fold on save
-}
-```
-
+To change the default settings copy the
+[settings file](AutoFold.sublime-settings)
+to `[your Sublime path]/Data/Packages/User/AutoFold.sublime-settings`
+and change it.
