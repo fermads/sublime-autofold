@@ -41,7 +41,7 @@ class AutoFoldListener(sublime_plugin.EventListener):
     if regexps:
       self.fold_regexp(view, regexps)
 
-  def on_load(self, view):
+  def on_load_async(self, view):
     self.active = self.activate(view)
 
     if self.active and self.settings.get('runOnLoad'):
