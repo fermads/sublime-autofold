@@ -5,7 +5,7 @@
 Plugin default settings will:
 
 * fold `rel`, `content` and `type` attributes from HTML files
-* folt HTML `<head>`
+* fold `<head>` from HTML files
 * fold all absolute urls leaving the last path part
 
 Instead of having long urls cluttering your view like this:<br/>
