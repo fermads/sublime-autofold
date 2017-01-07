@@ -42,7 +42,8 @@ Alternatively, clone the repo directly into Sublime Packages folder.
 *It's the `/Data/Packages` and not `/Packages` folder.
 
 ## Usage
-Example: open any HTML file with tags containing attributes `href` or `src`.
+Example: open any HTML file with absolute urls or tags containing
+attributes `rel`, `type` or `content.
 These attribute values will be folded. Saving the file will also fold them.
 
 ## Settings

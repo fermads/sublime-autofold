@@ -26,7 +26,6 @@ class AutoFoldListener(sublime_plugin.EventListener):
         self.log('Activated for file '+ file_name)
         return True
 
-
   def execute(self, view):
     attrs = self.settings.get('attributes')
     tags = self.settings.get('tags')
@@ -61,7 +60,7 @@ class AutoFoldListener(sublime_plugin.EventListener):
 
   def fold_tags(self, view, tags):
     for tag in tags:
-      result = view.find_all(r'(?<=<' + re.escape(tag) + '>).*?(?=</'
+      result = view.find_all(r'(?<=<' + re.escape(tag) + '>)(.|\n)*?(?=</'
              + re.escape(tag) + '>)', sublime.IGNORECASE)
       view.fold(result)
 

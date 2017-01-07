@@ -1,18 +1,24 @@
 {
   "attributes" : [ // attributes to auto-fold
-    "href",
-    "src"
+    "rel",
+    "type",
+    "content"
   ],
 
   "tags": [ // tags auto-fold
-    "h1"
+    "head"
   ],
 
   // "\\{(.|\n)*?\\}" // note: multiline regexps should include \n.
   // "." does not mach new lines
+  // ?<= positive lookbehind must have fixed size
   "regexps": [ // regexps to auto-fold
-    "(?<=(url)\\().*?(?=\\))", // fold urls in css files
-    "(?<=\\()http.*?(?=\\))" // fold markdown urls "(http://..)"
+    // show a fixed amount of chars from the end of url
+    /* "(?<=https://).*?(?=.{21}[\"'\\s])",
+       "(?<=http://).*?(?=.{22}[\"'\\s])", */
+
+    // show last path part from url
+    "https?://.*(?=\\/[^\"'\\s])"
   ],
 
   "extensions": [  // activate this plugin for file extensions:
