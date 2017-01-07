@@ -18,7 +18,7 @@
        "(?<=http://).*?(?=.{22}[\"'\\s])", */
 
     // show last path part from url
-    "https?://.*(?=\\/[^\"'\\s])"
+    "https?://.*(?=\\/[^\"'\\s)])"
   ],
 
   "extensions": [  // activate this plugin for file extensions:
@@ -26,7 +26,8 @@
     "htm",
     "css",
     "xml",
-    "md"
+    "md",
+    "mkd"
   ],
 
   "runOnLoad": true, // auto-fold on load
