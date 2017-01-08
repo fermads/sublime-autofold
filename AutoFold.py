@@ -26,9 +26,11 @@ class AutoFoldListener(sublime_plugin.EventListener):
         self.log('Activated for file '+ file_name)
         return True
 
+
   def execute(self, view):
     attrs = self.settings.get('attributes')
     tags = self.settings.get('tags')
+    urls = self.settings.get('urls')
     regexps = self.settings.get('regexps')
 
     if attrs:
@@ -37,8 +39,12 @@ class AutoFoldListener(sublime_plugin.EventListener):
     if tags:
       self.fold_tags(view, tags)
 
+    if urls:
+      self.fold_urls(view, urls)
+
     if regexps:
       self.fold_regexp(view, regexps)
+
 
   def on_load_async(self, view):
     self.active = self.activate(view)
@@ -56,6 +62,16 @@ class AutoFoldListener(sublime_plugin.EventListener):
     for regexp in regexps:
       result = view.find_all(regexp, sublime.IGNORECASE)
       view.fold(result)
+
+
+  def fold_urls(self, view, params):
+    result = view.find_all(params.get('regexp'), sublime.IGNORECASE)
+    for r in reversed(result):
+      if r.size() > params.get('substr'):
+        r.b -= params.get('substr')
+      else:
+        result.remove(r)
+    view.fold(result)
 
 
   def fold_tags(self, view, tags):

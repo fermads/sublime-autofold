@@ -5,8 +5,8 @@
 Plugin default settings will:
 
 * fold `rel`, `content` and `type` attributes from HTML files
-* fold `<head>` from HTML files
-* fold all absolute urls leaving the last path part
+* fold `<script>` tags from HTML files
+* fold all absolute http* urls leaving the last characters (default: 20)
 
 Instead of having long urls cluttering your view like this:<br/>
 ![unfolded](https://raw.githubusercontent.com/fermads/sublime-autofold/master/img/unfolded.png)

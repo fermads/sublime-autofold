@@ -5,29 +5,31 @@
     "content"
   ],
 
-  "tags": [ // tags auto-fold
-    "head"
+  "tags": [ // tags auto-fold (open and close in the same line)
+    "script"
   ],
 
-  // "\\{(.|\n)*?\\}" // note: multiline regexps should include \n.
+  "urls": {
+    "regexp": "https?://[^\\s\"')]+",
+    "substr": 20
+  },
+  // multiline regexps must include \n.
   // "." does not mach new lines
   // ?<= positive lookbehind must have fixed size
   "regexps": [ // regexps to auto-fold
-    // show a fixed amount of chars from the end of url
-    /* "(?<=https://).*?(?=.{21}[\"'\\s])",
-       "(?<=http://).*?(?=.{22}[\"'\\s])", */
-
-    // show last path part from url
-    "https?://.*(?=\\/[^\"'\\s)])"
+    // Example: fold all css comments /* ... */
+    // "(?<=/\\*)(.|\n)*?(?=\\*/)"
   ],
 
   "extensions": [  // activate this plugin for file extensions:
     "html",
     "htm",
     "css",
+    "sass",
+    "styl",
+    "less",
     "xml",
-    "md",
-    "mkd"
+    "md"
   ],
 
   "runOnLoad": true, // auto-fold on load
