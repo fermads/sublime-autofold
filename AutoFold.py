@@ -16,6 +16,9 @@ class AutoFoldListener(sublime_plugin.EventListener):
     extensions = self.settings.get('extensions')
     file_name = view.file_name()
 
+    if not file_name:
+      return False
+
     if not extensions:
       self.log('AutoFold.sublime-settings extensions missing')
       return False
@@ -25,6 +28,8 @@ class AutoFoldListener(sublime_plugin.EventListener):
       if file_name.endswith(ext):
         self.log('Activated for file '+ file_name)
         return True
+
+    return False
 
 
   def execute(self, view):
@@ -44,6 +49,11 @@ class AutoFoldListener(sublime_plugin.EventListener):
 
     if regexps:
       self.fold_regexp(view, regexps)
+
+
+  def on_activated(self, view):
+    if not self.active:
+      self.on_load_async(view)
 
 
   def on_load_async(self, view):
@@ -66,9 +76,10 @@ class AutoFoldListener(sublime_plugin.EventListener):
 
   def fold_urls(self, view, params):
     result = view.find_all(params.get('regexp'), sublime.IGNORECASE)
+    size = params.get('substr')
     for r in reversed(result):
-      if r.size() > params.get('substr'):
-        r.b -= params.get('substr')
+      if r.size() > size:
+        r.b -= size
       else:
         result.remove(r)
     view.fold(result)
